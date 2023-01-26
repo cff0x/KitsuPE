@@ -1,0 +1,30 @@
+
+#ifndef FOXYTOOLS_LOGLEVEL_H
+#define FOXYTOOLS_LOGLEVEL_H
+
+#define FOXY_LOG_LEVEL_TABLE \
+X(FOXY_LOG_DEV, 4, "DEV") \
+X(FOXY_LOG_DEBUG, 8, "DEBUG") \
+X(FOXY_LOG_INFO, 16, "INFO") \
+X(FOXY_LOG_WARNING, 32, "WARNING") \
+X(FOXY_LOG_ERROR, 64, "ERROR") \
+X(FOXY_LOG_FATAL, 128, "FATAL")
+
+
+#define FOXY_LOG_ALL \
+    (FOXY_LOG_DEV | FOXY_LOG_DEBUG | FOXY_LOG_INFO | \
+    FOXY_LOG_WARNING | FOXY_LOG_ERROR | FOXY_LOG_FATAL)
+
+#define X(a, b, d) a=b,
+enum FOXY_LOG_LEVEL {
+    FOXY_LOG_LEVEL_TABLE
+} typedef foxy_log_level_t;
+#undef X
+
+#define X(a, b, d) [a]=d,
+static char *FOXY_LOG_LEVEL_TAGS[] = {
+    FOXY_LOG_LEVEL_TABLE
+};
+#undef X
+
+#endif //FOXYTOOLS_LOGLEVEL_H

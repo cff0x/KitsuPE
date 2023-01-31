@@ -34,7 +34,7 @@ target_link_options(${PROJECT_NAME}
 
 add_custom_command(TARGET ${PROJECT_NAME}
     POST_BUILD
-    COMMAND python "${CMAKE_CURRENT_SOURCE_DIR}/extract.py" -f "$<TARGET_FILE:${PROJECT_NAME}>" -o "${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.bin"
+    COMMAND python "${CMAKE_CURRENT_SOURCE_DIR}/extract.py" -f "$<TARGET_FILE:${PROJECT_NAME}>" -o "${CMAKE_CURRENT_SOURCE_DIR}/x64/${PROJECT_NAME}.bin"
     COMMENT "This command extracts the shellcode binary data from the PE file"
     VERBATIM
 )

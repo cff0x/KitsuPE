@@ -5,9 +5,9 @@ import argparse
 
 if __name__ in "__main__":
     try:
-        parser = argparse.ArgumentParser( description = "Extracts shellcode from a PE.")
-        parser.add_argument("-f", required = True, help = "Path to the source executable", type = str)
-        parser.add_argument("-o", required = True, help = "Path to store the output raw binary", type = str)
+        parser = argparse.ArgumentParser(description="Extracts shellcode from a PE.")
+        parser.add_argument("-f", required=True, help="Path to the source executable", type=str)
+        parser.add_argument("-o", required=True, help="Path to store the output raw binary", type=str)
         option = parser.parse_args()
 
         PeExe = pefile.PE(option.f)
@@ -15,7 +15,7 @@ if __name__ in "__main__":
 
         if PeSec.find(b"base") != None:
             ScRaw = PeSec[:PeSec.find(b"base")]
-            f = open(option.o, "wb+")
+            f = open(option.o, "wb")
             f.write(ScRaw[:PeExe.sections[0].Misc_VirtualSize])
             f.close()
         else:

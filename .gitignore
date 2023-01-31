@@ -1,4 +1,4 @@
-.vs
-.idea
+.vs/
+.idea/
 dist/*
 CMakePresets.json

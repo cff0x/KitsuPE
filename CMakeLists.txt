@@ -12,7 +12,7 @@ include_directories("pe_shared")
 add_compile_options(
         #"/Oi-" # de-activate intrinsic functions
         #"/O1" # disable whole-program optimizations
-        "-fno-builtin"
+        #"-fno-builtin"
         "/O1"
 )
 
@@ -26,10 +26,13 @@ add_library (lzma2 STATIC
         "${LZMA2_DIR}/util.c" "${LZMA2_DIR}/xxhash.c")
 target_include_directories(lzma2 PUBLIC "${LZMA2_DIR}")
 
+add_subdirectory("pe_parser")
+
 add_subdirectory("foxylib")
 add_subdirectory("foxywinapi")
 add_subdirectory("basic_applications")
 add_subdirectory("debug_tool")
+
 
 add_subdirectory("pe_stub")
 

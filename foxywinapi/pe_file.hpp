@@ -328,3 +328,16 @@ typedef struct pe_image_debug_directory {
     uint32_t raw_data_address;
     uint32_t raw_data_pointer;
 } pe_image_debug_directory_t;
+
+typedef struct pe_file_data {
+    uint64_t* pe_address;
+    size_t pe_size;
+
+    pe_dos_header* dos_header;
+    pe_nt_headers_64* nt_header;
+    pe_image_data_directory* ei_data_dir;
+    pe_image_data_directory* tls_data_dir;
+    pe_image_data_directory* eh_data_dir;
+
+    pe_section_header* section_header;
+} pe_file_data_t;

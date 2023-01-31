@@ -45,7 +45,7 @@ void start()
     printf("[i] PE loader stub is starting!\n");
 
     char test_buf[1024] = "hamlo";
-    printf("[+] test_buf: %s", test_buf);
+    printf("[+] test_buf: %s\n", test_buf);
 
     while(1)  {
         LI_FN(Sleep)(10);
